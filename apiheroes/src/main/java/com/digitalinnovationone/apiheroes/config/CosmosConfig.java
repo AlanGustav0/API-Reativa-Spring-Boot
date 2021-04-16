@@ -16,9 +16,9 @@ public class CosmosConfig {
     @Bean
     public RouterFunction<ServerResponse> getHeroes(HeroesHandler heroesService){
         return RouterFunctions
-                .route(GET("/apiheroes").and(accept(MediaType.APPLICATION_JSON)), heroesService::findAll)
-                .andRoute(GET("/apiheroes/{id}").and(accept(MediaType.APPLICATION_JSON)), heroesService::findById)
-                .andRoute(POST("/apiheroes").and(accept(MediaType.APPLICATION_JSON)), heroesService::save);
+                .route(GET("/heroes").and(accept(MediaType.APPLICATION_JSON)), heroesService::findAll)
+                .andRoute(GET("/heroes/{id}").and(accept(MediaType.APPLICATION_JSON)), heroesService::findById)
+                .andRoute(POST("/heroes").and(accept(MediaType.APPLICATION_JSON)), heroesService::save);
 
     }
 
