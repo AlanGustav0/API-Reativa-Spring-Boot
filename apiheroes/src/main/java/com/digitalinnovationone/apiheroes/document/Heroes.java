@@ -5,19 +5,17 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Data
 @Document
 @NoArgsConstructor
 @AllArgsConstructor
 public class Heroes {
 
     @Id
-    @Getter @Setter
+    @Generated
     private String id;
-    @Getter @Setter
     private String name;
-    @Getter @Setter
     private String universe;
-    @Getter @Setter
     private int films;
 
 }

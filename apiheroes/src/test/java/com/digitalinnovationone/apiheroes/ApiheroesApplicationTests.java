@@ -1,6 +1,6 @@
 package com.digitalinnovationone.apiheroes;
 
-import com.digitalinnovationone.apiheroes.repository.HeroesRepositoryCosmos;
+import com.digitalinnovationone.apiheroes.repository.HeroesRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ class ApiheroesApplicationTests {
 	WebTestClient webTestClient;
 
 	@Autowired
-	HeroesRepositoryCosmos heroesRepository;
+    HeroesRepository heroesRepository;
 
 	@Test
 	void getOneHeroById() {

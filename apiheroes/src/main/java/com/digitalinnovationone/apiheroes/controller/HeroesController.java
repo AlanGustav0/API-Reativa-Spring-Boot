@@ -4,14 +4,15 @@ import com.digitalinnovationone.apiheroes.document.Heroes;
 import com.digitalinnovationone.apiheroes.service.HeroesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import static com.digitalinnovationone.apiheroes.constants.HerosConstant.HEROES_ENDPOINT_LOCAL;
 
-@CrossOrigin(origins = "*")
-@RestController
+/*Classe controller onde implementamos os endpoints, estes serão os métodos responsáveis por fazer de fato
+as ações de buscas todos os dados, salvar por ID, deletar por ID e criar um novo herói.
+ */
+//@RestController
 public class HeroesController {
 
     @Autowired
@@ -19,15 +20,13 @@ public class HeroesController {
 
     @GetMapping(HEROES_ENDPOINT_LOCAL)
     @ResponseStatus(HttpStatus.OK)
-    public Flux<Heroes> getAllItems(){
+    public Flux<Heroes> getAllHeroes(){
         return heroesService.findAll();
     }
 
-    @GetMapping(HEROES_ENDPOINT_LOCAL+"/id")
-    public Mono<ResponseEntity<Heroes>> findByIdHero(@PathVariable String id){
-        return heroesService.findById(id)
-                .map((item) -> new ResponseEntity<>(item,HttpStatus.OK))
-                .defaultIfEmpty(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    @GetMapping(HEROES_ENDPOINT_LOCAL+"/{id}")
+    public Mono<Heroes> findByIdHero(@PathVariable String id){
+        return heroesService.findById(id);
     }
 
     @PostMapping(HEROES_ENDPOINT_LOCAL)
