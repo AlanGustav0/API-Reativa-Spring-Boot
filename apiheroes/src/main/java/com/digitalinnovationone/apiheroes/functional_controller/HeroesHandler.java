@@ -1,9 +1,8 @@
-package com.digitalinnovationone.apiheroes.config;
+package com.digitalinnovationone.apiheroes.functional_controller;
 
 
 import com.digitalinnovationone.apiheroes.document.Heroes;
 import com.digitalinnovationone.apiheroes.service.HeroesService;
-import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.server.ServerRequest;
@@ -18,7 +17,7 @@ import reactor.core.publisher.Mono;
 /*Esta classe trata-se de um Bean que é gerenciado pelo Spring, por este motivo usamos o "@Component", ela
 é a maneira funcional de realizar as mesmas ações que a classe controller realiza, mas para um fluxo reativo
  */
-@Component
+//@Component
 public class HeroesHandler {
 
     @Autowired
@@ -44,10 +43,5 @@ public class HeroesHandler {
                 .body(fromPublisher(hero.flatMap(service::save), Heroes.class));
     }
 
-//    public Mono<ServerResponse> deleteByIdHero(ServerRequest request) {
-//        final Mono<Heroes> hero = request.bodyToMono(Heroes.class);
-//        return Mono.just(service.deleteByIdHero(request.pathVariable("id")))
-//                .
-//
-//    }
+
 }

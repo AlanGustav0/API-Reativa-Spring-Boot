@@ -12,7 +12,7 @@ import static com.digitalinnovationone.apiheroes.constants.HerosConstant.HEROES_
 /*Classe controller onde implementamos os endpoints, estes serão os métodos responsáveis por fazer de fato
 as ações de buscas todos os dados, salvar por ID, deletar por ID e criar um novo herói.
  */
-//@RestController
+@RestController
 public class HeroesController {
 
     @Autowired
@@ -36,7 +36,7 @@ public class HeroesController {
 
     }
 
-    @DeleteMapping(HEROES_ENDPOINT_LOCAL+"/id")
+    @DeleteMapping(HEROES_ENDPOINT_LOCAL+"/{id}")
     @ResponseStatus(code = HttpStatus.OK)
     public Mono<HttpStatus> deleteByHeroId(@PathVariable String id){
         return Mono.just(HttpStatus.OK);
